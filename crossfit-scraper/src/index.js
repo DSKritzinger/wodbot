@@ -4,12 +4,11 @@ const moment = require('moment');
 require('dotenv').config()
 
 const crossfitWOD = async () => {
-
+    
+    const date = moment();
     const { data } = await axios.get(
         'https://www.crossfit.com/workout/'
     );
-    
-    const date = moment();
     const wodDateId = `w${date.format('YYYYMMDD')}`;
 
     if (data.wods[0].id === wodDateId) {
